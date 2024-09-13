@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="MyStudent")
@@ -14,9 +15,13 @@ public class Student {
 			@Id
 			@GeneratedValue(strategy =GenerationType.IDENTITY )
 			@Column(name="RollNo")
+			
 			private int rno;
 			private String sname;
 			private double per;
+			
+			@Transient
+			private int x;
 			
 			public Student() {}
 			public Student(int rno, String sname, double per) {
